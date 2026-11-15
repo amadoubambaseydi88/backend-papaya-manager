@@ -1,6 +1,6 @@
 // ⚠️ REMPLACEZ CETTE URL PAR CELLE DE VOTRE BACKEND SUR RENDER
 // Exemple : 'https://papaya-api.onrender.com/api'
-const API_URL = 'http://localhost:5000/api'; 
+const API_URL = 'https://backend-papaya-manager.onrender.com/api'; 
 
 const api = {
     get: async (endpoint) => {
