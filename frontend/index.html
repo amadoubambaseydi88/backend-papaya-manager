@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papaya Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://img.icons8.com/color/48/000000/papaya.png" alt="Logo">
+                <h2>Papaya<br>Manager</h2>
+            </div>
+            <nav class="menu">
+                <a href="#" class="active" onclick="showSection('dashboard')">Tableau de bord</a>
+                <a href="#" onclick="showSection('harvests')">Récoltes</a>
+                <a href="#" onclick="showSection('sales')">Ventes</a>
+                <a href="#">Clients</a>
+                <a href="#">Stocks</a>
+                <a href="#">Rapports</a>
+                <a href="#">Paramètres</a>
+            </nav>
+            <div class="sidebar-image">
+                <img src="https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Papaye">
+                <div class="sidebar-text">
+                    <h3>Une bonne récolte, c'est une entreprise qui grandit !</h3>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1 id="page-title">Tableau de bord</h1>
+                <div class="user-profile">
+                    <span>Admin</span>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=2e7d32&color=fff" alt="Admin">
+                </div>
+            </header>
+
+            <!-- Section Tableau de bord -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Récolté</h3>
+                        <p id="stat-total-harvest">0 kg</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Ventes Totales</h3>
+                        <p id="stat-total-sales">0 FCFA</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Stock Actuel</h3>
+                        <p id="stat-current-stock">0 kg</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Clients</h3>
+                        <p id="stat-clients">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Récoltes -->
+            <section id="harvests-section" class="content-section">
+                <div class="section-header">
+                    <h2>Historique des récoltes</h2>
+                    <button class="btn-primary" onclick="toggleForm('harvest')">+ Nouvelle récolte</button>
+                </div>
+                <div id="harvest-form-container" class="form-container hidden">
+                    <form id="harvest-form">
+                        <input type="date" id="harvest-date" required>
+                        <input type="text" id="harvest-lot" placeholder="Lot de récolte (ex: #RP2026-11)" required>
+                        <input type="number" id="harvest-quantity" placeholder="Quantité (kg)" required>
+                        <input type="number" id="harvest-price" placeholder="Prix (FCFA/kg)" required>
+                        <button type="submit" class="btn-success">Enregistrer</button>
+                    </form>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th><th>Lot</th><th>Quantité (kg)</th><th>Prix (FCFA/kg)</th><th>Montant (FCFA)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="harvest-table-body"></tbody>
+                </table>
+            </section>
+
+            <!-- Section Ventes -->
+            <section id="sales-section" class="content-section">
+                <div class="section-header">
+                    <h2>Gestion des ventes</h2>
+                    <button class="btn-primary" onclick="toggleForm('sale')">+ Nouvelle vente</button>
+                </div>
+                <div id="sale-form-container" class="form-container hidden">
+                    <form id="sale-form">
+                        <input type="date" id="sale-date" required>
+                        <input type="text" id="sale-client" placeholder="Nom du client" required>
+                        <input type="number" id="sale-quantity" placeholder="Quantité (kg)" required>
+                        <input type="number" id="sale-price" placeholder="Prix (FCFA/kg)" required>
+                        <button type="submit" class="btn-success">Enregistrer</button>
+                    </form>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th><th>Client</th><th>Quantité (kg)</th><th>Prix (FCFA/kg)</th><th>Montant (FCFA)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sale-table-body"></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/harvests.js"></script>
+    <script src="js/sales.js"></script>
+</body>
+</html>
